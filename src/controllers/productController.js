@@ -8,10 +8,10 @@ export const getProducts = async (req, res) => {
 
 export const addProduct = async (req, res) => {
   const userId = req.user.userId;
-  const { name, description, quantity, price, category } = req.body;
+  const { name, description, quantity, price, category,image } = req.body;
   await pool.query(
     'INSERT INTO products (name, description, quantity, price, category, user_id) VALUES ($1,$2,$3,$4,$5,$6)',
-    [name, description, quantity, price, category, userId]
+    [name, description, quantity, price, category,image, userId,]
   );
   res.json({ message: 'Product added successfully' });
 };
